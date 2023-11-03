@@ -8,6 +8,3 @@ PyQt5 based calculatorr - Used for practice
 *Github저장소 생성및 관리실습
 *PyQt5 기반 계산기 기능 및 사용방법 개선
 
-##Getting started
-
-*P
