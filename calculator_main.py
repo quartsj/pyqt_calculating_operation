@@ -16,7 +16,7 @@ class Main(QDialog):
         layout_number = QGridLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        self.result._line_deit = QLineEdit("")
+        self.result_line_edit = QLineEdit("")
         self.result_line_edit.setReadOnly(True)
         self.result_line_edit.setAlignment(Qt.AlignRight)
         self.result_line_edit.setMaxLength(15)
@@ -95,28 +95,28 @@ class Main(QDialog):
     ### functions ###
     #################
     def number_button_clicked(self, num):
-        equation = self.equation.text()
+        equation = self.result._line_edit()
         equation += str(num)
         self.equation.setText(equation)
 
     def button_operation_clicked(self, operation):
-        equation = self.equation.text()
+        equation = self.result._line_edit()
         equation += operation
         self.equation.setText(equation)
 
     def button_equal_clicked(self):
-        equation = self.equation.text()
+        equation = self.result._line_edit()
         solution = eval(equation)
-        self.solution.setText(str(solution))
+        selfself.result._line_edit(str(solution))
 
     def button_clear_clicked(self):
-        self.equation.setText("")
-        self.solution.setText("")
+        self.result._line_edit("")
+        self.result._line_edit("")
 
     def button_backspace_clicked(self):
         equation = self.equation.text()
         equation = equation[:-1]
-        self.equation.setText(equation)
+        self.self.result._line_edit(equation)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
