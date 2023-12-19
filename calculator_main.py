@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
+import math
 
 class Main(QDialog):
     def __init__(self):
@@ -13,17 +14,18 @@ class Main(QDialog):
         layout_operation = QHBoxLayout()
         layout_clear_equal = QHBoxLayout()
         layout_number = QGridLayout()
-        layout_equation_solution = QFormLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        label_equation = QLabel("Equation: ")
-        label_solution = QLabel("Solution: ")
-        self.equation = QLineEdit("")
-        self.solution = QLineEdit("")
+        self.result._line_deit = QLineEdit("")
+        self.result_line_edit.setReadOnly(True)
+        self.result_line_edit.setAlignment(Qt.AlignRight)
+        self.result_line_edit.setMaxLength(15)
 
-        ### layout_equation_solution 레이아웃에 수식, 답 위젯을 추가
-        layout_equation_solution.addRow(label_equation, self.equation)
-        layout_equation_solution.addRow(label_solution, self.solution)
+        ### layout에 입력과 답안표기를 통합햐여 출력
+        layout_operation = QHBoxLayout()
+        layout_clear_equal = QHBoxLayout()
+        layout_number = QGridLayout()
+        
 
         ### 사칙연상 버튼 생성
         button_plus = QPushButton("+")
