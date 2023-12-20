@@ -15,10 +15,10 @@ class Main(QDialog):
         layout_number = QGridLayout()
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
-        self.result_line_edit = QLineEdit("")
-        self.result_line_edit.setReadOnly(True)
-        self.result_line_edit.setAlignment(Qt.AlignRight)
-        self.result_line_edit.setMaxLength(15)
+        self.equation_line_edit = QLineEdit("")
+        self.equation_line_edit.setReadOnly(True)  
+        self.equation_line_edit.setAlignment(Qt.AlignRight)
+        self.equation_line_edit.setMaxLength(15)
 
         ### 사칙연산 버튼 생성
         button_plus = QPushButton("+")
@@ -75,8 +75,8 @@ class Main(QDialog):
         layout_number.addWidget(button_double_zero, 3, 0)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
+        main_layout.addWidget(self.equation_line_edit)
         main_layout.addLayout(layout_operation)
-        main_layout.addWidget(self.result_line_edit)  # Add result_line_edit directly to the layout
         main_layout.addLayout(layout_clear_equal)
         main_layout.addLayout(layout_number)
 
@@ -87,33 +87,32 @@ class Main(QDialog):
     ### functions ###
     #################
     def number_button_clicked(self, num):
-        equation = self.result_line_edit.text()
+        equation = self.equation_line_edit.text()
         equation += str(num)
-        self.result_line_edit.setText(equation)
+        self.equation_line_edit.setText(equation)
 
     def button_operation_clicked(self, operation):
-        equation = self.result_line_edit.text()
+        equation = self.equation_line_edit.text()
         equation += operation
-        self.result_line_edit.setText(equation)
+        self.equation_line_edit.setText(equation)
 
     def button_equal_clicked(self):
-        equation = self.result_line_edit.text()
+        equation = self.equation_line_edit.text()
         try:
             solution = eval(equation)
-            self.result_line_edit.setText(str(solution))
+            self.equation_line_edit.setText(str(solution))
         except Exception as e:
-            self.result_line_edit.setText('Error')
+            self.equation_line_edit.setText('Error')
 
     def button_clear_clicked(self):
-        self.result_line_edit.clear()
+        self.equation_line_edit.clear()
 
     def button_backspace_clicked(self):
-        equation = self.result_line_edit.text()
+        equation = self.equation_line_edit.text()
         equation = equation[:-1]
-        self.result_line_edit.setText(equation)
+        self.equation_line_edit.setText(equation)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = Main()
     sys.exit(app.exec_())
-
