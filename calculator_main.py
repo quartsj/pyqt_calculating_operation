@@ -20,11 +20,6 @@ class Main(QDialog):
         self.result_line_edit.setAlignment(Qt.AlignRight)
         self.result_line_edit.setMaxLength(15)
 
-        ### layout에 입력과 답안표기를 통합하여 출력
-        layout_operation = QHBoxLayout()
-        layout_clear_equal = QHBoxLayout()
-        layout_number = QGridLayout()
-
         ### 사칙연산 버튼 생성
         button_plus = QPushButton("+")
         button_minus = QPushButton("-")
@@ -81,6 +76,7 @@ class Main(QDialog):
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
         main_layout.addLayout(layout_operation)
+        main_layout.addWidget(self.result_line_edit)  # Add result_line_edit directly to the layout
         main_layout.addLayout(layout_clear_equal)
         main_layout.addLayout(layout_number)
 
@@ -120,3 +116,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = Main()
     sys.exit(app.exec_())
+
