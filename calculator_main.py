@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
 
 class Main(QDialog):
     def __init__(self):
@@ -16,7 +17,7 @@ class Main(QDialog):
 
         ### 수식 입력과 답 출력을 위한 LineEdit 위젯 생성
         self.equation_line_edit = QLineEdit("")
-        self.equation_line_edit.setReadOnly(True)  
+        self.equation_line_edit.setReadOnly(True)  # Make it read-only to display the result
         self.equation_line_edit.setAlignment(Qt.AlignRight)
         self.equation_line_edit.setMaxLength(15)
 
@@ -75,7 +76,7 @@ class Main(QDialog):
         layout_number.addWidget(button_double_zero, 3, 0)
 
         ### 각 레이아웃을 main_layout 레이아웃에 추가
-        main_layout.addWidget(self.equation_line_edit)
+        main_layout.addWidget(self.equation_line_edit)  # Add equation_line_edit directly to the layout
         main_layout.addLayout(layout_operation)
         main_layout.addLayout(layout_clear_equal)
         main_layout.addLayout(layout_number)
