@@ -1,5 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog, QVBoxLayout, QHBoxLayout, QGridLayout, QPushButton, QLineEdit, QLabel
+from PyQt5.QtCore import Qt
 
 class Main(QDialog):
     def __init__(self):
