@@ -1,6 +1,5 @@
 import sys
 from PyQt5.QtWidgets import *
-import math
 
 class Main(QDialog):
     def __init__(self):
@@ -121,4 +120,3 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     main = Main()
     sys.exit(app.exec_())
-
